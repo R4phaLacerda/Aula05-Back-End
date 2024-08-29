@@ -71,6 +71,17 @@ app.get("/emocoes", (req, res) => {
     return res.status(200).send( emocoes )
 })
 
+app.post("/emocoes", (req, res) => {
+    const { Nome, Cor } = req.body
+    const novaEmocao = {
+        Id: emocoes.length +1,
+        Nome: Nome,
+        Cor: Cor
+    }
+    emocoes.push(novaEmocao)
+    return res.status(200).send( emocoes )
+})
+
 app.get("/personagem", (req, res) => {
     return res.status(200).send( personagem )
 })
